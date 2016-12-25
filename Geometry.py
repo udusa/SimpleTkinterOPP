@@ -33,6 +33,15 @@ class Vec2d(object):
         self.x += vec.x
         self.y += vec.y
 
+    def getNorm(self):
+        return sqrt(self.x*self.x+self.y*self.y)
+
+    def normalize(self):
+        if self.getNorm()==0:
+            raise ValueError("Norm is zero, can't be 0")
+        self.x /= self.getNorm()
+        self.y /= self.getNorm()
+
     def getInstance(self):
         return Vec2d(self.x,self.y)
 
